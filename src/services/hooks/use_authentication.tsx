@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import { db } from '../configs/firebase';
+import { db } from '../configs/supabase';
 import { doc, getDoc } from 'firebase/firestore';
 import { getAuth, onAuthStateChanged, User } from 'firebase/auth';
 

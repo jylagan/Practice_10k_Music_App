@@ -1,8 +1,13 @@
-import { createClient, AuthError, User } from '@supabase/supabase-js';
+import { createClient } from '@supabase/supabase-js';
 import { DataManagementAPI } from './data_management_api';
 
-const supabaseUrl = 'YOUR_SUPABASE_URL';
-const supabaseKey = 'YOUR_SUPABASE_ANON_KEY';
+const supabaseUrl = process.env.SUPABASE_URL || ''
+const supabaseKey = process.env.SUPABASE_KEY || ''
+
+//Check if it properly uses environment variables.
+if (supabaseUrl == '' || supabaseKey == ''){
+    console.log('supabaseUrl or supabaseKey is empty.')
+}
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 export const AuthenticationAPI = {
